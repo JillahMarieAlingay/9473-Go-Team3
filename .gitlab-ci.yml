@@ -1,0 +1,38 @@
+image: golang:latest
+
+stages:
+  - test 
+  - compile
+  - deploy
+
+# Testing before compiling
+test:
+  stage: test
+  script:
+    - echo "Testing started"
+    - cd power-interruption-logging-system
+    - go test -v
+
+code_coverage:
+  stage: test
+  script:
+    - make tools/coverage.sh
+
+code_coverage_report:
+  stage: test
+  script:
+    - make tools/coverage.sh
+  only:
+  - master
+
+compiling:
+  stage: compile
+  script:
+    - go build power-interruption-logging-system/main.go
+    - echo "Successfully built go .exe for power interruption checker"
+                 
+
+deploying:
+  stage: deploy
+  script: echo "Define your deployment script!"
+

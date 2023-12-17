@@ -20,11 +20,7 @@ func RunServer() {
 	}
 	defer listener.Close()
 
-	// Construct server status message
-	serverStatus := fmt.Sprint("Server is running on ", listener.Addr())
-
-	// Print server status message
-	fmt.Println(serverStatus)
+	fmt.Println("Server is running.")
 
 	for {
 		// Accept connections
@@ -56,10 +52,8 @@ func handleConnection(conn net.Conn) {
 		// Convert the received data to a string
 		clientMessage := string(buffer)
 
-		clientMessagePrint := fmt.Sprint("Received message from client:", clientMessage)
-
 		// Print client's message to the console
-		fmt.Println(clientMessagePrint)
+		fmt.Println("Received message from client:", clientMessage)
 
 		// Read data from the text file (BufferedReader)
 		/* BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName));
