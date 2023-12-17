@@ -40,13 +40,3 @@ jobs:
         run: |
           go build power-interruption-logging-system/main.go
           echo "Successfully built go .exe for power interruption checker"
-
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Deployment
-        run: echo "Define your deployment script!"
