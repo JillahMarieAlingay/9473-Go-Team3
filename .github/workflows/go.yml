@@ -22,7 +22,6 @@ jobs:
         run: |
           echo "Testing started"
           cd power-interruption-logging-system
-          go mod init
           go test -v
 
   compile:
