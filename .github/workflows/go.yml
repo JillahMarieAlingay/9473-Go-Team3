@@ -1,23 +1,51 @@
-# This workflow will build a golang project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
-
-name: Go
+name: Go Build and Test
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches:
+      - main  # Change this to your main branch name
 
 jobs:
-
-  unit_test:
+  test:
     runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo "Unit Testing Started"
-          cd power-interruption-logging-system
-          go test -v
-          
 
-  
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: '1.21.4'  # Change this to your desired Go version
+
+      - name: Test
+        run: |
+          echo "Testing started"
+          go test -v
+
+  compile:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: '1.21.4'  # Change this to your desired Go version
+
+      - name: Compile
+        run: |
+          go build power-interruption-logging-system/main.go
+          echo "Successfully built go .exe for power interruption checker"
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Deployment
+        run: echo "Define your deployment script!"
