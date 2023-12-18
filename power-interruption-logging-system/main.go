@@ -13,6 +13,7 @@ import (
 	"slices"
 	"strconv"
 	"strings"
+	"regexp"
 )
 
 // creates a schedule interface with the function is_scheduled
@@ -33,7 +34,12 @@ func (i interruption) is_scheduled(list []interruption) bool {
 
 // function to check if interruption is scheduled using the date
 func is_scheduled_date(list []string, date string) bool {
-	return slices.Contains(list, date)
+	// Regex pattern to match date format
+	pattern := `^(\d{2} [A-Za-z]{3} \d{2} \d{2}:\d{2})$`
+	re := regexp.MustCompile(pattern)
+
+	// Check if the date matches the pattern and is in the list
+	return re.MatchString(date) && slices.Contains(list, date)
 }
 
 // basic import file function, returns a slice of interruptions
