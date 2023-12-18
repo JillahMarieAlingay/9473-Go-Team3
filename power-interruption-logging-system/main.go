@@ -42,6 +42,7 @@ func is_scheduled_date(list []string, date string) bool {
 	return re.MatchString(date) && slices.Contains(list, date)
 }
 
+
 // basic import file function, returns a slice of interruptions
 func import_list(filename string) []interruption {
 	var content []interruption
