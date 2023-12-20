@@ -7,7 +7,7 @@ name: Mark stale issues and pull requests
 
 on:
   schedule:
-    - cron: '0 8 * * 5' # Runs every Friday at 8:00 AM UTC
+    - cron: '0 0 * * 5' # Runs every Friday at 8:00 AM UTC+8
   pull_request:
     branches:
       - main # Runs on every pull request to main
