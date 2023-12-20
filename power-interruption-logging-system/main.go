@@ -13,7 +13,6 @@ import (
 	"slices"
 	"strconv"
 	"strings"
-	"regexp"
 )
 
 // creates a schedule interface with the function is_scheduled
@@ -32,6 +31,11 @@ func (i interruption) is_scheduled(list []interruption) bool {
 	return slices.Contains(list, i)
 }
 
+// function to check if interruption is scheduled using the date
+func is_scheduled_date(list []string, date string) bool {
+	// TO BE IMPLEMENTED
+	return false
+}
 // basic import file function, returns a slice of interruptions
 func import_list(filename string) []interruption {
 	var content []interruption
