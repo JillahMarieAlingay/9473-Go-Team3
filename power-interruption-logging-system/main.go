@@ -34,6 +34,7 @@ func (i interruption) is_scheduled(list []interruption) bool {
 
 // function to check if interruption is scheduled using the date
 func is_scheduled_date(list []string, date string) bool {
+
 	// Regex pattern to match date format
 	pattern := `^(\d{2} [A-Za-z]{3} \d{2} \d{2}:\d{2})$`
 	re := regexp.MustCompile(pattern)
